@@ -1,0 +1,11 @@
+Get HTTP Status code from IP's (tmp file in command) for both http and https
+
+for i in $(cat tmp); do for j in {"http://","https://"} ; do echo $j$i --\> Response is $(curl $j$i -m 2 -Is | grep HTTP/1.1 | cut -d' ' -f 2) ; done; done
+
+
+
+Get IP addresses from domain names in a file (useful for masscan)
+
+for i in $(cat host_target); do host $i | grep "has address" | cut -d ' ' -f 4; done
+
+
